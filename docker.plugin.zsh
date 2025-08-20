@@ -37,7 +37,7 @@ _fzf_complete_docker() {
     _fzf_complete "--multi --header-lines=1 --header 'Enter CTRL-O to open log in editor | CTRL-/ to change height\n\n' --bind 'ctrl-/:change-preview-window(80%,border-bottom|)' --bind \"ctrl-o:execute:docker logs {1} | sed 's/\x1b\[[0-9;]*m//g' | cat | ${EDITOR:-vim} -\" --preview-window up:follow --preview 'docker logs --follow --tail=100 {1}' " "$@" < <(
       docker ps -a --format "${FZF_DOCKER_PS_FORMAT}"
     )
-  elif [[ $ARGS == 'docker rm'* ]]; then
+  elif [[ $ARGS == 'docker rm'* || $ARGS == 'docker container rm'* ]]; then
     _fzf_complete "--multi --header-lines=1 " "$@" < <(
       docker ps -a --format "${FZF_DOCKER_PS_FORMAT}"
   )

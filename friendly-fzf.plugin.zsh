@@ -18,8 +18,6 @@ if [[ ${zsh_loaded_plugins[-1]} != */friendly-fzf && -z ${fpath[(r)${0:h}]} ]] {
 typeset -gA Plugins
 Plugins[FRIENDLY_FZF_DIR]="${0:h}"
 
-autoload -Uz template-script
-autoload -Uz docker
 
 # Use alternate vim marks [[[ and ]]] as the original ones can
 # confuse nested substitutions, e.g.: ${${${VAR}}}
